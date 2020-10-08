@@ -1,9 +1,8 @@
 import React from 'react';
+import Product from '../../Product/product';
 import PropTypes from 'prop-types';
-import Product__ImageWrapper from './__ImageWrapper/product__image-wrapper';
-import Product__Details from './__Details/product__details';
 
-const Product = ({
+const ProductList__Item = ({
   title = '',
   img = '',
   subtitle = '',
@@ -12,9 +11,8 @@ const Product = ({
   discounted = undefined,
   inCart = false,
 } = {}) => (
-  <article className="product" itemScope itemType="http://schema.org/Product">
-    <Product__ImageWrapper img={img} />
-    <Product__Details
+  <li className="product-list__item">
+    <Product
       title={title}
       img={img}
       subtitle={subtitle}
@@ -23,17 +21,16 @@ const Product = ({
       discounted={discounted}
       inCart={inCart}
     />
-  </article>
+  </li>
 );
 
-Product.propTypes = {
+ProductList__Item.propTypes = {
+  title: PropTypes.string,
   img: PropTypes.string,
   subtitle: PropTypes.string,
-  title: PropTypes.string,
   price: PropTypes.number,
   strike: PropTypes.number,
   discounted: PropTypes.number,
   inCart: PropTypes.bool,
 };
-
-export default Product;
+export default ProductList__Item;

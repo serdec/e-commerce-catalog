@@ -4,8 +4,7 @@ import render from 'riteway/render-component';
 import Product__Details from './product__details';
 
 describe('product__details', async (assert) => {
-  const createProduct__Details = ({ title = '', description = '' } = {}) =>
-    render(<Product__Details />);
+  const createProduct__Details = () => render(<Product__Details />);
   {
     const $ = createProduct__Details();
     assert({

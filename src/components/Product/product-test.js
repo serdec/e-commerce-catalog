@@ -1,7 +1,6 @@
 import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
-import match from 'riteway/match';
 import Product from './product';
 
 describe('product', async (assert) => {
