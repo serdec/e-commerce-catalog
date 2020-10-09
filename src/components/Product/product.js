@@ -7,31 +7,31 @@ const Product = ({
   title = '',
   cover_image_url = '',
   description = '',
-  retail_price = 0,
-  net_price = 0,
+  retail_price = '0',
+  net_price = '0',
   discount = 0,
   inCart = false,
 } = {}) => (
-  <article className="product" itemScope itemType="http://schema.org/Product">
-    <Product__ImageWrapper cover_image_url={cover_image_url} />
-    <Product__Details
-      title={title}
-      cover_image_url={cover_image_url}
-      description={description}
-      retail_price={retail_price}
-      net_price={net_price}
-      discount={discount}
-      inCart={inCart}
-    />
-  </article>
-);
+    <article className="product" itemScope itemType="http://schema.org/Product">
+      <Product__ImageWrapper cover_image_url={cover_image_url} />
+      <Product__Details
+        title={title}
+        cover_image_url={cover_image_url}
+        description={description}
+        retail_price={retail_price}
+        net_price={net_price}
+        discount={discount}
+        inCart={inCart}
+      />
+    </article>
+  );
 
 Product.propTypes = {
   cover_image_url: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string,
-  retail_price: PropTypes.number,
-  net_price: PropTypes.number,
+  retail_price: PropTypes.string,
+  net_price: PropTypes.string,
   discount: PropTypes.number,
   inCart: PropTypes.bool,
 };
