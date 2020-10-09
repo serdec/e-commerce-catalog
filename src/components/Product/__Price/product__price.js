@@ -1,29 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Product__Price = ({ price, strike, discounted } = {}) => (
-  <>
-    {price ? (
-      <span className="product__price">£{price}</span>
+const Product__Price = ({
+  retail_price = 0,
+  net_price = 0,
+  discount = 0,
+} = {}) => (
+  <div className="product__price" itemScope itemType="http://schema.org/Offer">
+    {discount > 0 ? (
+      <>
+        <span className="product__price--strike">£{net_price}</span>
+        <span className="product__price--discounted">£{retail_price}</span>
+      </>
     ) : (
-      <div
-        className="product__price"
-        itemScope
-        itemType="http://schema.org/Offer"
-      >
-        <span className="product__price--strike">£{strike}</span>
-        <span className="product__price--discounted" itemProp="price">
-          £{discounted}
-        </span>
-      </div>
+      <span className="product__price">£{retail_price}</span>
     )}
-  </>
+  </div>
 );
 
 Product__Price.propTypes = {
-  price: PropTypes.number,
-  strike: PropTypes.number,
-  discounted: PropTypes.number,
+  retail_price: PropTypes.number,
+  net_price: PropTypes.number,
+  discount: PropTypes.number,
 };
 
 export default Product__Price;

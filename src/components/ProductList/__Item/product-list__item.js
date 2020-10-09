@@ -4,21 +4,21 @@ import PropTypes from 'prop-types';
 
 const ProductList__Item = ({
   title = '',
-  img = '',
-  subtitle = '',
-  price = undefined,
-  strike = undefined,
-  discounted = undefined,
+  cover_image_url = '',
+  description = '',
+  retail_price = 0,
+  net_price = 0,
+  discount = 0,
   inCart = false,
 } = {}) => (
   <li className="product-list__item">
     <Product
       title={title}
-      img={img}
-      subtitle={subtitle}
-      price={price}
-      strike={strike}
-      discounted={discounted}
+      cover_image_url={cover_image_url}
+      description={description}
+      retail_price={retail_price}
+      net_price={net_price}
+      discount={discount}
       inCart={inCart}
     />
   </li>
@@ -26,11 +26,11 @@ const ProductList__Item = ({
 
 ProductList__Item.propTypes = {
   title: PropTypes.string,
-  img: PropTypes.string,
-  subtitle: PropTypes.string,
-  price: PropTypes.number,
-  strike: PropTypes.number,
-  discounted: PropTypes.number,
+  cover_image_url: PropTypes.string,
+  description: PropTypes.string,
+  retail_price: PropTypes.number,
+  net_price: PropTypes.number,
+  discount: PropTypes.number,
   inCart: PropTypes.bool,
 };
 export default ProductList__Item;
