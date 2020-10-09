@@ -3,27 +3,6 @@ import { array } from 'prop-types';
 import ProductList__Item from './__Item/product-list__item';
 
 const ProductList = ({ list = [] } = {}) => {
-  // const [list, setList] = useState([]);
-  // useEffect(() => {
-  //   const getRes = async () => {
-  //     const res = await fetch(
-  //       'https://api.musement.com/api/v3/venues/164/activities?limit=6&offset=0',
-  //       {
-  //         headers: {
-  //           'accept-language': 'it',
-  //           'Content-Type': 'application/json',
-  //           'content-type': 'application/json',
-  //           'x-musement-currency': 'EUR',
-  //           'x-musement-version': '3.4.0',
-  //         },
-  //       }
-  //     );
-  //     const list = await res.json();
-  //     setList(list);
-  //   };
-  //   getRes();
-  // }, [list]);
-
   return (
     <ul className="product-list">
       {list.map((el) => (

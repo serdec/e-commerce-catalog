@@ -1,12 +1,11 @@
 import React from 'react';
 import { any } from 'prop-types';
+import Footer__Sidenote from './__Sidenote/footer__sidenote';
 
-const Footer = ({ children } = {}) => (
-  <footer className="container">{children}</footer>
+const Footer = () => (
+  <footer className="container">
+    <Footer__Sidenote content={'Footer'} />
+  </footer>
 );
-
-Footer.propTypes = {
-  children: any,
-};
 
 export default Footer;

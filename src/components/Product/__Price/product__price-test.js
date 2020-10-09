@@ -54,7 +54,7 @@ describe('product__price', async (assert) => {
       const net_price = 200;
       const retail_price = 100;
       const $ = createProduct__Price({ retail_price, net_price, discount });
-      const contains = match($.html().trim());
+      const contains = match($.html());
       const net_priceClass = 'product__price--strike';
       const discountedClass = 'product__price--discounted';
       assert({
