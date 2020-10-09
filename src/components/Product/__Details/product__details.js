@@ -8,28 +8,28 @@ import Product__AddToCart from '../__AddToCart/product__add-to-cart';
 const Product__Details = ({
   title = '',
   description = '',
-  retail_price = 0,
-  net_price = 0,
+  retail_price = '0',
+  net_price = '0',
   discount = 0,
   inCart = false,
 } = {}) => (
-  <div className="product__details">
-    <Product__Title title={title} />
-    <Product__Description description={description} />
-    <Product__Price
-      retail_price={retail_price}
-      net_price={net_price}
-      discount={discount}
-    />
-    <Product__AddToCart inCart={inCart} />
-  </div>
-);
+    <div className="product__details">
+      <Product__Title title={title} />
+      <Product__Description description={description} />
+      <Product__Price
+        retail_price={retail_price}
+        net_price={net_price}
+        discount={discount}
+      />
+      <Product__AddToCart inCart={inCart} />
+    </div>
+  );
 
 Product__Details.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
-  retail_price: PropTypes.number,
-  net_price: PropTypes.number,
+  retail_price: PropTypes.string,
+  net_price: PropTypes.string,
   discount: PropTypes.number,
   inCart: PropTypes.bool,
 };

@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 
 const Pagination__Link = ({ id = '', title = '' } = {}) => {
   return (
-    <a className="pagination__link">
+    <a href="#" className="pagination__link">
       {id === 'LeftArrow' && (
         <svg
           className="icon"

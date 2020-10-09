@@ -4,22 +4,22 @@
 
 @font-face{
     font-family: 'Lato-Bold';
-    src: url('/font/Lato-Bold.ttf') format('ttf');
-}
+    src: url('../public/fonts/Lato-Bold.ttf') format('ttf');
+} 
 
 @font-face{
     font-family: 'Lato-BoldItalic';
-    src: url('/font/Lato-BoldItalic.ttf') format('ttf');
+    src: url('../public/fonts/Lato-BoldItalic.ttf') format('ttf');
 }
 
 @font-face{
     font-family: 'Lato-Italic';
-    src: url('/font/Lato-Italic.ttf') format('ttf');
+    src: url('../public/fonts/Lato-Italic.ttf') format('ttf');
 }
 
 @font-face{
     font-family: 'Lato-Regular';
-    src: url('/font/Lato-Regular.ttf') format('ttf');
+    src: url('../public/fonts/Lato-Regular.ttf') format('ttf');
 }
 
 /* ==========================================================================
@@ -248,9 +248,27 @@ main {
 
 .product-list__item {
     padding: 10px;
+    max-width: 25vw; 
     flex: 1 0 33.3333%;
     max-width: 33.3333%;
 }
+@media(max-width: 600px){
+    .product-list__item {
+        padding: 10px;
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1200px){
+    .product-list__item {
+        padding: 10px;
+        flex: 1 0 50%;
+        max-width: 50%;
+    }
+}
+
+
 
 /* ==========================================================================
    Product
