@@ -5,9 +5,13 @@ import match from 'riteway/match';
 import Product__Price from './product__price';
 
 describe('product__price', async (assert) => {
-  const createProduct__Price = ({ price, strike, discounted } = {}) =>
+  const createProduct__Price = ({ retail_price, net_price, discount } = {}) =>
     render(
-      <Product__Price price={price} strike={strike} discounted={discounted} />
+      <Product__Price
+        retail_price={retail_price}
+        net_price={net_price}
+        discount={discount}
+      />
     );
 
   {
@@ -15,84 +19,59 @@ describe('product__price', async (assert) => {
     {
       assert({
         given: 'no arguments',
-        should: 'render the product price component',
-        expected: 1,
+        should: 'render the product price container and the retail price',
+        expected: 2,
         actual: $('.product__price').length,
       });
     }
   }
   {
     {
-      const strike = 100;
-      const $ = createProduct__Price({ strike });
+      const retail_price = 100;
+      const $ = createProduct__Price({ retail_price });
       const contains = match($.html().trim());
 
       assert({
-        given: 'a strike price',
-        should: 'render the price',
+        given: 'a retail price',
+        should: 'render the retail price',
         expected: '100',
-        actual: contains(strike),
+        actual: contains(retail_price),
       });
     }
     {
-      const strike = 101;
-      const $ = createProduct__Price({ strike });
+      const retail_price = 101;
+      const $ = createProduct__Price({ retail_price });
       const contains = match($.html().trim());
       assert({
-        given: 'a strike price',
-        should: 'render the price',
+        given: 'a retail price',
+        should: 'render the retail price',
         expected: '101',
-        actual: contains(strike),
+        actual: contains(retail_price),
       });
     }
     {
-      const strike = 100;
-      const $ = createProduct__Price({ strike });
+      const discount = 10;
+      const net_price = 200;
+      const retail_price = 100;
+      const $ = createProduct__Price({ retail_price, net_price, discount });
       const contains = match($.html().trim());
-      const strikeClass = 'product__price--strike';
-      assert({
-        given: 'a strike price',
-        should: 'render the prices with the correct class',
-        expected: strikeClass,
-        actual: contains(strikeClass),
-      });
-    }
-  }
-  {
-    {
-      const discounted = 50;
-      const $ = createProduct__Price({ discounted });
-      const contains = match($.html().trim());
-      {
-        assert({
-          given: 'a discounted price',
-          should: 'render the price',
-          expected: '50',
-          actual: contains(discounted),
-        });
-      }
-    }
-    {
-      const discounted = 51;
-      const $ = createProduct__Price({ discounted });
-      const contains = match($.html().trim());
-      {
-        assert({
-          given: 'a discounted price',
-          should: 'render the price',
-          expected: '51',
-          actual: contains(discounted),
-        });
-      }
-    }
-    {
-      const discounted = 50;
-      const $ = createProduct__Price({ discounted });
-      const contains = match($.html().trim());
+      const net_priceClass = 'product__price--strike';
       const discountedClass = 'product__price--discounted';
       assert({
-        given: 'a discounted price',
-        should: 'render the prices with the correct class',
+        given: 'a net price and a discount',
+        should: 'render the net price striked',
+        expected: net_priceClass,
+        actual: contains(net_priceClass),
+      });
+      assert({
+        given: 'a retail price and a discount',
+        should: 'render the retail price',
+        expected: '100',
+        actual: contains('100'),
+      });
+      assert({
+        given: 'a discount retail price',
+        should: 'render the retail price as discounted',
         expected: discountedClass,
         actual: contains(discountedClass),
       });
@@ -100,52 +79,26 @@ describe('product__price', async (assert) => {
   }
   {
     {
-      const price = 200;
-      const $ = createProduct__Price({ price });
+      const discount = 0;
+      const retail_price = 100;
+      const net_price = 200;
+      const $ = createProduct__Price({ retail_price, net_price, discount });
       const contains = match($.html().trim());
       {
         assert({
-          given: 'a regular price',
-          should: 'render the price',
-          expected: '200',
-          actual: contains(price),
+          given: 'a discount of 0 and a retail price',
+          should: 'render the retail price',
+          expected: '100',
+          actual: contains(retail_price),
         });
-      }
-    }
-    {
-      const price = 201;
-      const $ = createProduct__Price({ price });
-      const contains = match($.html().trim());
-      {
-        assert({
-          given: 'a regular price',
-          should: 'render the price',
-          expected: '201',
-          actual: contains(price),
-        });
-      }
-    }
-    {
-      const price = 200;
-      const discounted = 100;
-      const strike = 50;
-      const $ = createProduct__Price({ price, discounted, strike });
-      const contains = match($.html().trim());
-      {
-        assert({
-          given: 'a regular price',
-          should: 'not render the strike price',
-          expected: '',
-          actual: contains(strike),
-        });
-      }
-      {
-        assert({
-          given: 'a regular price',
-          should: 'not render the discounted price',
-          expected: '',
-          actual: contains(discounted),
-        });
+        {
+          assert({
+            given: 'a retail price and no discount',
+            should: 'not render the net price',
+            expected: '',
+            actual: contains(net_price),
+          });
+        }
       }
     }
   }

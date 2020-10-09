@@ -20,17 +20,23 @@ import HeaderBag__WishlistCount from '../components/HeaderBag/__WishlistCount/he
 
 const productsList = [
   {
+    uuid: '1',
     title: 'Product Title 1',
-    img: 'images/activity_image.jpeg',
-    subtitle: 'Product Description 1',
-    strike: 210,
-    discounted: 210,
+    cover_image_url: 'images/activity_image.jpeg',
+    description: 'Product Description 1',
+    net_price: 210,
+    discount: 10,
+    retail_price: 200,
   },
   {
-    title: 'Product Title 2',
-    img: 'images/activity_image.jpeg',
-    subtitle: 'Product Description 2',
-    price: 210,
+    uuid: '2',
+    title:
+      'Biglietti salta fila per i Musei Vaticani con ingresso opzionale per la Basilica di San Pietro',
+    cover_image_url:
+      'https://images.musement.com/cover/0002/50/la-creazione-di-adamo-vaticani_header-149100.jpeg?q=60&fit=crop&w=300&h=300',
+    description:
+      'Prenota un ingresso prioritario esclusivo con assistenza, accedi ai Musei nel modo pi\u00f9 rapido possibile e scegli tra audioguida e visita guidata',
+    retail_price: 210,
     inCart: true,
   },
 ];
@@ -52,7 +58,7 @@ const paginationList = [
 ];
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <meta charSet="utf-8" key="charset" />
         <meta
@@ -104,39 +110,35 @@ export default function Home() {
           key="viewoport"
         />
       </Head>
-      <div>
-        <body>
-          <Header>
-            <PageTitle content={'BRAND'} />
-            <HeaderBag>
-              <HeaderBag__Item>
-                <HeaderBag__Count>
-                  <HeaderBag__Price value={210} />
-                  <BagIcon />
-                  <Bag__Item value={10} isCounter={true} />
-                </HeaderBag__Count>
-              </HeaderBag__Item>
-              <HeaderBag__Item>
-                <HeaderBag__WishlistCount>
-                  <WhishListIcon />
-                  <Bag__Item value={10} isCounter={true} />
-                </HeaderBag__WishlistCount>
-              </HeaderBag__Item>
-            </HeaderBag>
-          </Header>
-          <ProductPage>
-            <Container>
-              <ProductList list={productsList} />
-              <Pagination>
-                <Pagination__List list={paginationList}></Pagination__List>
-              </Pagination>
-            </Container>
-          </ProductPage>
-          <Footer>
-            <Footer__Sidenote content={'Footer'} />
-          </Footer>
-        </body>
-      </div>
-    </div>
+      <Header>
+        <PageTitle content={'BRAND'} />
+        <HeaderBag>
+          <HeaderBag__Item>
+            <HeaderBag__Count>
+              <HeaderBag__Price value={210} />
+              <BagIcon />
+              <Bag__Item value={10} isCounter={true} />
+            </HeaderBag__Count>
+          </HeaderBag__Item>
+          <HeaderBag__Item>
+            <HeaderBag__WishlistCount>
+              <WhishListIcon />
+              <Bag__Item value={10} isCounter={true} />
+            </HeaderBag__WishlistCount>
+          </HeaderBag__Item>
+        </HeaderBag>
+      </Header>
+      <ProductPage>
+        <Container>
+          <ProductList list={productsList} />
+          <Pagination>
+            <Pagination__List list={paginationList} />
+          </Pagination>
+        </Container>
+      </ProductPage>
+      <Footer>
+        <Footer__Sidenote content={'Footer'} />
+      </Footer>
+    </>
   );
 }

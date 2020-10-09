@@ -6,13 +6,13 @@ const ProductList = ({ list = [] } = {}) => (
   <ul className="product-list">
     {list.map((el) => (
       <ProductList__Item
-        key={el.title}
+        key={el.uuid}
         title={el.title}
-        img={el.img}
-        subtitle={el.subtitle}
-        price={el.price}
-        strike={el.strike}
-        discounted={el.discounted}
+        cover_image_url={el.cover_image_url}
+        description={el.description}
+        retail_price={el.retail_price}
+        net_price={el.net_price}
+        discount={el.discount}
         inCart={el.inCart}
       />
     ))}

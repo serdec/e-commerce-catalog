@@ -6,11 +6,9 @@ import Pagination__Link from '../__Link/pagination__link';
 const Pagination__List = ({ list = [] } = {}) => (
   <ul className="pagination__list">
     {list.map((el) => (
-      <li key={el.id}>
-        <Pagination__Item>
-          <Pagination__Link id={el.id} title={el.title} />
-        </Pagination__Item>
-      </li>
+      <Pagination__Item key={el.id}>
+        <Pagination__Link id={el.id} title={el.title} />
+      </Pagination__Item>
     ))}
   </ul>
 );
