@@ -11,18 +11,18 @@ const ProductList__Item = ({
   discount = 0,
   inCart = false,
 } = {}) => (
-    <li className="product-list__item">
-      <Product
-        title={title}
-        cover_image_url={cover_image_url}
-        description={description}
-        retail_price={retail_price}
-        net_price={net_price}
-        discount={discount}
-        inCart={inCart}
-      />
-    </li>
-  );
+  <li className="product-list__item">
+    <Product
+      title={title}
+      cover_image_url={cover_image_url}
+      description={description}
+      retail_price={retail_price}
+      net_price={net_price}
+      discount={discount}
+      inCart={inCart}
+    />
+  </li>
+);
 
 ProductList__Item.propTypes = {
   title: PropTypes.string,

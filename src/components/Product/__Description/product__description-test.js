@@ -14,7 +14,7 @@ describe('prodcut__description', async (assert) => {
       given: 'no arguments',
       should: 'render the product description',
       expected: 1,
-      actual: $('.product__description').length,
+      actual: $('.product__subtitle').length,
     });
   }
   {

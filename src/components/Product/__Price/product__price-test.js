@@ -27,7 +27,7 @@ describe('product__price', async (assert) => {
   }
   {
     {
-      const retail_price = 100;
+      const retail_price = '100';
       const $ = createProduct__Price({ retail_price });
       const contains = match($.html().trim());
 
@@ -39,7 +39,7 @@ describe('product__price', async (assert) => {
       });
     }
     {
-      const retail_price = 101;
+      const retail_price = '101';
       const $ = createProduct__Price({ retail_price });
       const contains = match($.html().trim());
       assert({
@@ -51,8 +51,8 @@ describe('product__price', async (assert) => {
     }
     {
       const discount = 10;
-      const net_price = 200;
-      const retail_price = 100;
+      const net_price = '200';
+      const retail_price = '100';
       const $ = createProduct__Price({ retail_price, net_price, discount });
       const contains = match($.html());
       const net_priceClass = 'product__price--strike';
@@ -80,8 +80,8 @@ describe('product__price', async (assert) => {
   {
     {
       const discount = 0;
-      const retail_price = 100;
-      const net_price = 200;
+      const retail_price = '100';
+      const net_price = '200';
       const $ = createProduct__Price({ retail_price, net_price, discount });
       const contains = match($.html().trim());
       {
