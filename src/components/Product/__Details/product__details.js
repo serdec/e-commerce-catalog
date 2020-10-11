@@ -13,17 +13,17 @@ const Product__Details = ({
   discount = 0,
   inCart = false,
 } = {}) => (
-    <div className="product__details">
-      <Product__Title title={title} />
-      <Product__Description description={description} />
-      <Product__Price
-        retail_price={retail_price}
-        net_price={net_price}
-        discount={discount}
-      />
-      <Product__AddToCart inCart={inCart} />
-    </div>
-  );
+  <div className="product__details">
+    <Product__Title title={title} />
+    <Product__Description description={description} />
+    <Product__Price
+      retail_price={retail_price}
+      net_price={net_price}
+      discount={discount}
+    />
+    <Product__AddToCart inCart={inCart} />
+  </div>
+);
 
 Product__Details.propTypes = {
   description: PropTypes.string,
