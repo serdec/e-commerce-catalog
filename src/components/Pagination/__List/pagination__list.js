@@ -25,7 +25,11 @@ const Pagination__List = ({ list = [], current = 1 } = {}) => {
 
       {list.map((page) => (
         <Pagination__Item key={page.id}>
-          <Pagination__Link label={page.id} link={`${url}${page.id}`} />
+          <Pagination__Link
+            label={page.id}
+            link={`${url}${page.id}`}
+            current={current === parseInt(page.id)}
+          />
         </Pagination__Item>
       ))}
       <Pagination__Item>

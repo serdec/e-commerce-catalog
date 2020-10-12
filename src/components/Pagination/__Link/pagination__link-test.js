@@ -5,8 +5,12 @@ import match from 'riteway/match';
 import Pagination__Link from './pagination__link';
 
 describe('pagination__link', async (assert) => {
-  const createPagination__Link = ({ label = '', link = '' } = {}) =>
-    render(<Pagination__Link label={label} link={link} />);
+  const createPagination__Link = ({
+    label = '',
+    link = '',
+    current = false,
+  } = {}) =>
+    render(<Pagination__Link label={label} link={link} current={current} />);
   {
     const $ = createPagination__Link();
     assert({
@@ -22,6 +26,22 @@ describe('pagination__link', async (assert) => {
     const $ = createPagination__Link({
       label,
       link: `/page/${label}`,
+    });
+    const contains = match($.html().trim());
+    assert({
+      given: 'a number link type',
+      should: 'render the number link',
+      expected: textToSearch,
+      actual: contains(textToSearch),
+    });
+  }
+  {
+    const textToSearch = 'pagination__link--current';
+    const label = '1';
+    const $ = createPagination__Link({
+      label,
+      link: `/page/${label}`,
+      current: true,
     });
     const contains = match($.html().trim());
     assert({

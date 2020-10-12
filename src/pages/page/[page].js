@@ -13,13 +13,13 @@ const ProductListing = ({
   pagesList = [],
   current = 1,
 } = {}) => (
-    <>
-      <ProductList list={productsList} />
-      <Pagination>
-        <Pagination__List list={pagesList} current={current} />
-      </Pagination>
-    </>
-  );
+  <>
+    <ProductList list={productsList} />
+    <Pagination>
+      <Pagination__List list={pagesList} current={current} />
+    </Pagination>
+  </>
+);
 
 ProductListing.propTypes = {
   productsList: array,
