@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
-
-const rootReducer = combineReducers({});
+import bagReducer from '../components/Bag/reducer';
+const rootReducer = combineReducers({
+  bag: bagReducer,
+});
 
 export default rootReducer;

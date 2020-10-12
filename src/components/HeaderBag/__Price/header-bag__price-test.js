@@ -34,4 +34,16 @@ describe('header-bag__price', async (assert) => {
       actual: contains(textToSearch),
     });
   }
+  {
+    const value = 0;
+    const $ = createHeaderBag__Price({ value });
+    const contains = match($.html().trim());
+    const textToSearch = '0';
+    assert({
+      given: 'a price value of 0',
+      should: 'not render the price',
+      expected: '',
+      actual: contains(textToSearch),
+    });
+  }
 });

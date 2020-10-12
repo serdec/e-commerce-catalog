@@ -17,6 +17,18 @@ describe('bag__item', async (assert) => {
     });
   }
   {
+    const value = 0;
+    const $ = createBag__Item({ value, isCounter: true });
+    const contains = match($.html());
+    const textToSearch = '0';
+    assert({
+      given: 'a price value 0',
+      should: 'should not render the counter',
+      expected: '',
+      actual: contains(textToSearch),
+    });
+  }
+  {
     const value = 210;
     const $ = createBag__Item({ value });
     const contains = match($.html().trim());

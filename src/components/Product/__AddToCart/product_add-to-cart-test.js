@@ -2,11 +2,11 @@ import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
 import match from 'riteway/match';
-import Product__AddToCart from './product__add-to-cart';
+import { Product__AddToCart } from './product__add-to-cart';
 
 describe('product__add-to-cart', async (assert) => {
-  const createProduct__AddToCart = ({ primary = false, inCart = false } = {}) =>
-    render(<Product__AddToCart primary={primary} inCart={inCart} />);
+  const createProduct__AddToCart = ({ primary = false, inBag = false } = {}) =>
+    render(<Product__AddToCart primary={primary} inBag={inBag} />);
   {
     const $ = createProduct__AddToCart();
     assert({
@@ -18,8 +18,8 @@ describe('product__add-to-cart', async (assert) => {
   }
   {
     const primary = true;
-    const inCart = true;
-    const $ = createProduct__AddToCart({ primary, inCart });
+    const inBag = true;
+    const $ = createProduct__AddToCart({ primary, inBag });
     const contains = match($.html().trim());
     assert({
       given: 'primary flag',

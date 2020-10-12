@@ -22,6 +22,7 @@ const paginationList = [
     title: 'Arrow Right',
   },
 ];
+
 const ProductListing = ({ productsList = [] } = {}) => (
   <>
     <ProductList list={productsList} />

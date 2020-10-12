@@ -1,11 +1,13 @@
 import React from 'react';
 import { describe } from 'riteway';
 import render from 'riteway/render-component';
-import Product from './product';
+import { Product } from './product';
+import { wrapper } from '../../store/store';
 
+const Product_WithStore = wrapper.withRedux(Product);
 describe('product', async (assert) => {
   const createProduct = ({ title = '', img = '' } = {}) =>
-    render(<Product title={title} img={img} />);
+    render(<Product_WithStore title={title} img={img} />);
 
   {
     const $ = createProduct();
