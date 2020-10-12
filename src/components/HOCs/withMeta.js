@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 const withMeta = (Component) => (props) =>
-  function WithMeta() {
+  (function WithMeta() {
     return (
       <>
         <Head>
@@ -59,6 +59,6 @@ const withMeta = (Component) => (props) =>
         <Component {...props} />
       </>
     );
-  };
+  })();
 
 export default withMeta;
