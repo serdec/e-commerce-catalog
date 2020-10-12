@@ -1,5 +1,4 @@
 import React from 'react';
-import { any } from 'prop-types';
 import Footer__Sidenote from './__Sidenote/footer__sidenote';
 
 const Footer = () => (

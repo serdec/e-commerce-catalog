@@ -1,19 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Product__AddToCart = ({ inCart = false } = {}) => {
-  const buttonLabel = inCart ? 'In cart' : 'add to Cart';
-  const buttonIsInCart = inCart ? 'button--in-cart' : '';
+const noop = () => {};
+
+/* Export for testing */
+export const Product__AddToCart = ({ inBag = false, addToBag = noop } = {}) => {
+  const buttonLabel = inBag ? 'In cart' : 'add to Cart';
+  const buttonIsInCart = inBag ? 'button--in-cart' : '';
   return (
     <button
       className={`product__add-to-cart button button--primary ${buttonIsInCart}`}
+      onClick={addToBag}
     >
       {buttonLabel}
     </button>
   );
 };
+/*
+ * When using static generation there might be a mismatch
+ * between the version pre-generated and the one on the
+ * client side. The useEffect below fixes the mismatch
+ * between the two versions.
+ */
+const Product__AddToCart_Container = ({
+  inBag = false,
+  addToBag = noop,
+} = {}) => {
+  const [isInBag, setIsInBag] = useState(false);
+  //fixes hydration mismatch
+  useEffect(() => {
+    setIsInBag(inBag);
+  }, [inBag]);
+
+  return <Product__AddToCart inBag={isInBag} addToBag={addToBag} />;
+};
+
+Product__AddToCart_Container.propTypes = {
+  inBag: PropTypes.bool,
+  addToBag: PropTypes.func,
+};
 
 Product__AddToCart.propTypes = {
-  inCart: PropTypes.bool,
+  inBag: PropTypes.bool,
+  addToBag: PropTypes.func,
 };
-export default Product__AddToCart;
+
+export default Product__AddToCart_Container;

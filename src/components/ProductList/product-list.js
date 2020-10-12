@@ -8,13 +8,13 @@ const ProductList = ({ list = [] } = {}) => {
       {list.map((el) => (
         <ProductList__Item
           key={el.uuid}
+          uuid={el.uuid}
           title={el.title}
           cover_image_url={el.cover_image_url}
           description={el.description}
-          retail_price={el.retail_price.formatted_value}
-          net_price={el.net_price?.formatted_value}
+          retail_price={el.retail_price}
+          net_price={el.net_price}
           discount={el.discount}
-          inCart={el.inCart}
         />
       ))}
     </ul>
