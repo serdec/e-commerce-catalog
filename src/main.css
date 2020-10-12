@@ -396,8 +396,9 @@ main {
 
 .pagination__list {
     height: 100%;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
 
@@ -408,6 +409,7 @@ main {
     font-size: 13px;
     letter-spacing: 1.39px;
     text-align: center;
+
 }
 
 .pagination__link {

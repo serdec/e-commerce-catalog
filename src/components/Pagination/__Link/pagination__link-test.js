@@ -5,8 +5,8 @@ import match from 'riteway/match';
 import Pagination__Link from './pagination__link';
 
 describe('pagination__link', async (assert) => {
-  const createPagination__Link = ({ id = '', title = '' } = {}) =>
-    render(<Pagination__Link id={id} title={title} />);
+  const createPagination__Link = ({ label = '', link = '' } = {}) =>
+    render(<Pagination__Link label={label} link={link} />);
   {
     const $ = createPagination__Link();
     assert({
@@ -17,34 +17,11 @@ describe('pagination__link', async (assert) => {
     });
   }
   {
-    const textToSearch = 'Arrow Left';
-    const $ = createPagination__Link({ id: 'LeftArrow', title: 'Arrow Left' });
-    const contains = match($.html().trim());
-    assert({
-      given: 'a left arrow link type',
-      should: 'render the left arrow link',
-      expected: textToSearch,
-      actual: contains(textToSearch),
-    });
-  }
-  {
-    const textToSearch = 'Arrow Right';
-    const $ = createPagination__Link({
-      id: 'RightArrow',
-      title: 'Arrow Right',
-    });
-    const contains = match($.html().trim());
-    assert({
-      given: 'a right arrow link type',
-      should: 'render the right arrow link',
-      expected: textToSearch,
-      actual: contains(textToSearch),
-    });
-  }
-  {
     const textToSearch = '1';
+    const label = '1';
     const $ = createPagination__Link({
-      id: '1',
+      label,
+      link: `/page/${label}`,
     });
     const contains = match($.html().trim());
     assert({
