@@ -4,22 +4,22 @@
 
 @font-face{
     font-family: 'Lato-Bold';
-    src: url('/font/Lato-Bold.ttf') format('ttf');
-}
+    src: url('/fonts/Lato-Bold.ttf') format('truetype');
+} 
 
 @font-face{
     font-family: 'Lato-BoldItalic';
-    src: url('/font/Lato-BoldItalic.ttf') format('ttf');
+    src: url('/fonts/Lato-BoldItalic.ttf') format('truetype');
 }
 
 @font-face{
     font-family: 'Lato-Italic';
-    src: url('/font/Lato-Italic.ttf') format('ttf');
+    src: url('/fonts/Lato-Italic.ttf') format('truetype');
 }
 
 @font-face{
     font-family: 'Lato-Regular';
-    src: url('/font/Lato-Regular.ttf') format('ttf');
+    src: url('/fonts/Lato-Regular.ttf') format('truetype');
 }
 
 /* ==========================================================================
@@ -142,15 +142,22 @@ main {
 }
 
 .button--wishlist:hover {
-    border: 1px solid #444A59;
+    border: 1px solid #358ED7;
 }
 
 .button--wishlist:hover > .icon {
-    fill: #444A59;
+    fill: #358ED7;
+}
+
+.button--inWishlist{
+    border: 1px solid #358ED7;
+    
+}
+.button--inWishlist > .icon {
+    fill: #358ED7;
 }
 
 .button--in-cart {
-    pointer-events: none;
     background-color: #d9d9d9;
 }
 
@@ -197,7 +204,11 @@ main {
 }
 
 .header-bag__count {
+    height: 25px;
     margin-left: 10px;
+
+    display: flex;
+    align-items: flex-end;
 }
 
 .header-bag__count .icon {
@@ -205,7 +216,11 @@ main {
 }
 
 .header-bag__wishlist-count {
+    height: 25px;
     margin-left: 10px;
+    
+    display: flex;
+    align-items: flex-end;
 }
 
 .bag__item-counter {
@@ -240,9 +255,27 @@ main {
 
 .product-list__item {
     padding: 10px;
+    max-width: 25vw; 
     flex: 1 0 33.3333%;
     max-width: 33.3333%;
 }
+@media(max-width: 600px){
+    .product-list__item {
+        padding: 10px;
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1200px){
+    .product-list__item {
+        padding: 10px;
+        flex: 1 0 50%;
+        max-width: 50%;
+    }
+}
+
+
 
 /* ==========================================================================
    Product
@@ -341,7 +374,7 @@ main {
 
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 25px;
 }
 
 .product__add-to-cart {
@@ -362,8 +395,9 @@ main {
 
 .pagination__list {
     height: 100%;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
 
@@ -374,6 +408,10 @@ main {
     font-size: 13px;
     letter-spacing: 1.39px;
     text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pagination__link {
@@ -393,6 +431,14 @@ main {
     width: 8px;
     fill: #444A59;
 }
+.pagination__link--current {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+    background-color: #ffffff;
+} 
+
 
 /* ==========================================================================
    Footer
