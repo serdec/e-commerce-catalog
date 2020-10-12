@@ -142,11 +142,19 @@ main {
 }
 
 .button--wishlist:hover {
-    border: 1px solid #444A59;
+    border: 1px solid #358ED7;
 }
 
 .button--wishlist:hover > .icon {
-    fill: #444A59;
+    fill: #358ED7;
+}
+
+.button--inWishlist{
+    border: 1px solid #358ED7;
+    
+}
+.button--inWishlist > .icon {
+    fill: #358ED7;
 }
 
 .button--in-cart {
