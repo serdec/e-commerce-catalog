@@ -5,7 +5,7 @@ import Product__Description from '../__description/product__description';
 import Product__Price from '../__Price/product__price';
 import Product__AddToCart from '../__AddToCart/product__add-to-cart';
 
-const noop = () => {};
+const noop = () => { };
 const Product__Details = ({
   title = '',
   description = '',
@@ -13,19 +13,19 @@ const Product__Details = ({
   net_price = '0',
   discount = 0,
   inBag = false,
-  addToBag = noop,
+  onBagClick = noop,
 } = {}) => (
-  <div className="product__details">
-    <Product__Title title={title} />
-    <Product__Description description={description} />
-    <Product__Price
-      retail_price={retail_price}
-      net_price={net_price}
-      discount={discount}
-    />
-    <Product__AddToCart inBag={inBag} addToBag={addToBag} />
-  </div>
-);
+    <div className="product__details">
+      <Product__Title title={title} />
+      <Product__Description description={description} />
+      <Product__Price
+        retail_price={retail_price}
+        net_price={net_price}
+        discount={discount}
+      />
+      <Product__AddToCart inBag={inBag} onBagClick={onBagClick} />
+    </div>
+  );
 
 Product__Details.propTypes = {
   uuid: PropTypes.string,
@@ -35,6 +35,6 @@ Product__Details.propTypes = {
   net_price: PropTypes.string,
   discount: PropTypes.number,
   inBag: PropTypes.bool,
-  addToBag: PropTypes.func,
+  onBagClick: PropTypes.func,
 };
 export default Product__Details;

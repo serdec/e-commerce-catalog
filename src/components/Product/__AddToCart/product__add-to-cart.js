@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const noop = () => {};
+const noop = () => { };
 
 /* Export for testing */
-export const Product__AddToCart = ({ inBag = false, addToBag = noop } = {}) => {
+export const Product__AddToCart = ({
+  inBag = false,
+  onBagClick = noop,
+} = {}) => {
   const buttonLabel = inBag ? 'In cart' : 'add to Cart';
   const buttonIsInCart = inBag ? 'button--in-cart' : '';
   return (
     <button
       className={`product__add-to-cart button button--primary ${buttonIsInCart}`}
-      onClick={addToBag}
+      onClick={onBagClick}
     >
       {buttonLabel}
     </button>
@@ -24,7 +27,7 @@ export const Product__AddToCart = ({ inBag = false, addToBag = noop } = {}) => {
  */
 const Product__AddToCart_Container = ({
   inBag = false,
-  addToBag = noop,
+  onBagClick = noop,
 } = {}) => {
   const [isInBag, setIsInBag] = useState(false);
   //fixes hydration mismatch
@@ -32,17 +35,17 @@ const Product__AddToCart_Container = ({
     setIsInBag(inBag);
   }, [inBag]);
 
-  return <Product__AddToCart inBag={isInBag} addToBag={addToBag} />;
+  return <Product__AddToCart inBag={isInBag} onBagClick={onBagClick} />;
 };
 
 Product__AddToCart_Container.propTypes = {
   inBag: PropTypes.bool,
-  addToBag: PropTypes.func,
+  onBagClick: PropTypes.func,
 };
 
 Product__AddToCart.propTypes = {
   inBag: PropTypes.bool,
-  addToBag: PropTypes.func,
+  onBagClick: PropTypes.func,
 };
 
 export default Product__AddToCart_Container;
