@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Product__Title from '../__Title/product__title';
-import Product__Description from '../__description/product__description';
+import Product__Description from '../__Description/product__description';
 import Product__Price from '../__Price/product__price';
 import Product__AddToCart from '../__AddToCart/product__add-to-cart';
 
