@@ -1,4 +1,4 @@
-# Javascript Developer coding challenge
+# E-Commerce Fast Loading Catalog
 
 
 You can find a deployed version of this project at https://e-commerce-catalog.vercel.app/page/1
