@@ -13,7 +13,7 @@ The products shown are fetched from a remote endpoint, however pages navigation 
 ## Always up to date (even though pages are statically generated in advance)
 
 Although the catalog is statically generated and pre-built, it remains always synched with its remote source thanks to the revalidation policy. This means that the catalog is revalidate every 10 seconds with no down time. 
-You can read more on [NextJS Data Fetching] (https://nextjs.org/docs/basic-features/data-fetching) 
+You can read more on [NextJS Data Fetching](https://nextjs.org/docs/basic-features/data-fetching) 
 
 ## Test Driven Development
 
@@ -21,7 +21,7 @@ The project has been developed using Test Driven Development (TDD), you can find
 
 ## Reusable components
 
-In developing the components the [BEM] (https://en.bem.info/methodology/quick-start/) methodology has been followed. This ensures a highly scalable and easy maintanable source code.
+In developing the components the [BEM](https://en.bem.info/methodology/quick-start/) methodology has been followed. This ensures a highly scalable and easy maintanable source code.
  
 # Development
 
